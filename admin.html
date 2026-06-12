@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex,nofollow">
+  <title>Painel Administrativo | Grupo Shalom</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+  <section class="login-screen" id="login-screen">
+    <div class="login-brand">
+      <img src="assets/logo-original.png" alt="Grupo Shalom">
+      <p>Gestão imobiliária e assessoria</p>
+    </div>
+    <form class="login-card" id="login-form">
+      <p class="overline">Acesso restrito</p>
+      <h1>Painel Administrativo</h1>
+      <div id="login-fields">
+        <label>E-mail<input type="email" name="email" required autocomplete="username"></label>
+        <label>Senha<input type="password" name="password" required autocomplete="current-password"></label>
+        <button class="primary-btn" type="submit">Entrar</button>
+        <button class="text-btn" type="button" id="reset-password">Esqueci minha senha</button>
+      </div>
+      <div class="bootstrap-box" id="bootstrap-box" hidden>
+        <p>Este projeto ainda não possui administrador. Crie a conta principal para iniciar o sistema.</p>
+        <label>Nome completo<input type="text" name="adminName" autocomplete="name"></label>
+        <label>E-mail do administrador<input type="email" name="adminEmail" autocomplete="email"></label>
+        <label>Telefone<input type="tel" name="adminPhone" autocomplete="tel"></label>
+        <label>Senha inicial<input type="password" name="adminPassword" minlength="8" autocomplete="new-password"></label>
+        <label>Confirmar senha<input type="password" name="adminPasswordConfirm" minlength="8" autocomplete="new-password"></label>
+        <button class="primary-btn" type="button" id="create-first-admin">Criar primeiro administrador</button>
+      </div>
+      <button class="setup-toggle" type="button" id="setup-toggle" hidden>Criar primeiro administrador</button>
+      <p class="form-message" id="login-message"></p>
+    </form>
+  </section>
+
+  <div class="admin-shell" id="admin-shell" hidden>
+    <aside class="sidebar">
+      <a class="admin-logo" href="#dashboard"><img src="assets/logo-original.png" alt="Grupo Shalom"></a>
+      <nav id="admin-nav"></nav>
+      <div class="sidebar-user">
+        <span class="avatar" id="user-avatar">GS</span>
+        <div><strong id="user-name">Usuário</strong><small id="user-role">Função</small></div>
+        <button id="logout-btn" title="Sair">↗</button>
+      </div>
+    </aside>
+
+    <main class="admin-main">
+      <header class="admin-header">
+        <button class="mobile-nav-btn" id="mobile-nav-btn">☰</button>
+        <div><p class="overline">Grupo Shalom</p><h1 id="page-title">Dashboard</h1></div>
+        <div class="header-actions">
+          <span class="connection-status" id="connection-status">Firebase conectado</span>
+          <button class="primary-btn compact" id="primary-action">Novo cadastro</button>
+        </div>
+      </header>
+      <div class="admin-content" id="admin-content"></div>
+    </main>
+  </div>
+
+  <dialog class="admin-dialog" id="editor-dialog">
+    <form method="dialog" class="dialog-card" id="editor-form">
+      <header><div><p class="overline" id="dialog-overline">Cadastro</p><h2 id="dialog-title">Novo registro</h2></div><button type="button" class="icon-btn" id="close-dialog">×</button></header>
+      <div class="form-grid" id="editor-fields"></div>
+      <footer><button type="button" class="secondary-btn" id="cancel-dialog">Cancelar</button><button type="submit" class="primary-btn">Salvar</button></footer>
+      <p class="form-message" id="editor-message"></p>
+    </form>
+  </dialog>
+
+  <div class="toast" id="toast" role="status"></div>
+  <script type="module" src="admin.js"></script>
+</body>
+</html>

@@ -53,6 +53,10 @@ document.querySelector("#contact-form")?.addEventListener("submit", (event) => {
     data.get("mensagem") ? `Mensagem: ${data.get("mensagem")}` : ""
   ].filter(Boolean).join("\n");
 
-  document.querySelector(".form-status").textContent = "Abrindo uma conversa no WhatsApp...";
-  window.open(`https://wa.me/595971131739?text=${encodeURIComponent(text)}`, "_blank", "noopener,noreferrer");
+  if (window.saveLeadAndOpenWhatsapp) {
+    window.saveLeadAndOpenWhatsapp(event.currentTarget, text);
+  } else {
+    document.querySelector(".form-status").textContent = "Abrindo uma conversa no WhatsApp...";
+    window.open(`https://wa.me/595986523099?text=${encodeURIComponent(text)}`, "_blank", "noopener,noreferrer");
+  }
 });
