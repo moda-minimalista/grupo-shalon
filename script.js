@@ -3,7 +3,7 @@ const menuButton = document.querySelector(".menu-toggle");
 const nav = document.querySelector(".main-nav");
 
 window.addEventListener("scroll", () => {
-  header.classList.toggle("scrolled", window.scrollY > 30);
+  header.classList.toggle("scrolled", document.body.classList.contains("catalog-page") || window.scrollY > 30);
 });
 
 menuButton.addEventListener("click", () => {
@@ -42,7 +42,7 @@ document.querySelectorAll(".favorite").forEach((button) => {
   });
 });
 
-document.querySelector("#contact-form").addEventListener("submit", (event) => {
+document.querySelector("#contact-form")?.addEventListener("submit", (event) => {
   event.preventDefault();
   const data = new FormData(event.currentTarget);
   const text = [

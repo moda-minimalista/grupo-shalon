@@ -26,6 +26,8 @@ img { max-width: 100%; display: block; }
 }
 .site-header.scrolled { height: 72px; background: rgba(6,29,56,.96); backdrop-filter: blur(15px); box-shadow: 0 10px 30px rgba(0,0,0,.14); }
 .brand, .footer-brand { display: flex; align-items: center; gap: 12px; color: var(--gold-light); }
+.brand img { width: 92px; height: 76px; object-fit: contain; }
+.footer-brand img { width: 125px; height: auto; }
 .brand-mark { width: 42px; height: 42px; display: grid; place-items: center; }
 .brand-mark svg { width: 100%; height: 100%; fill: none; stroke: currentColor; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
 .brand strong, .footer-brand strong { display: block; font: 600 15px/1 var(--serif); letter-spacing: .08em; }
@@ -54,11 +56,21 @@ h1 em { color: var(--gold-light); font-style: italic; }
 .btn-gold:hover { background: var(--gold-light); }
 .btn-outline { color: white; border-color: rgba(255,255,255,.5); }
 .btn-outline:hover { border-color: white; background: white; color: var(--navy); }
+.btn-dark { color: white; background: var(--navy); }
+.btn-dark:hover { background: var(--navy-2); }
 .hero-note { position: absolute; right: 5vw; bottom: 42px; z-index: 2; display: flex; align-items: center; gap: 14px; color: rgba(255,255,255,.68); font-size: 12px; letter-spacing: .15em; text-transform: uppercase; }
 .hero-note i { width: 28px; height: 1px; background: var(--gold); }
 .scroll-cue { position: absolute; bottom: 35px; left: 50%; z-index: 2; width: 28px; height: 45px; border: 1px solid rgba(255,255,255,.45); border-radius: 20px; }
 .scroll-cue span { width: 4px; height: 8px; border-radius: 4px; background: var(--gold); position: absolute; left: 11px; top: 9px; animation: scroll 2s infinite; }
 @keyframes scroll { 0% { opacity: 0; transform: translateY(0); } 40% { opacity: 1; } 100% { opacity: 0; transform: translateY(15px); } }
+
+.catalog-hero { min-height: 510px; padding: 180px 7vw 90px; display: flex; align-items: center; color: white; background: linear-gradient(90deg, rgba(3,17,34,.96), rgba(3,17,34,.38)), url("assets/hero-residencia.png") center 58%/cover; }
+.catalog-hero > div { max-width: 800px; }
+.catalog-hero h1 { margin-bottom: 22px; }
+.catalog-hero > div > p:last-child { max-width: 600px; color: rgba(255,255,255,.75); font-size: 17px; line-height: 1.7; }
+.catalog-properties { padding-top: 120px; }
+.catalog-properties .property-ticker { margin-top: -120px; }
+.catalog-page .main-nav a[aria-current="page"] { color: var(--gold-light); }
 
 .section { padding: 120px 7vw; }
 .about { display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 8vw; background: #fbfaf7; }
@@ -84,6 +96,7 @@ h2 { color: var(--navy); font: 500 clamp(40px, 4.5vw, 68px)/1.05 var(--serif); l
 .filter { padding: 11px 20px; color: var(--navy); background: transparent; border: 1px solid rgba(6,29,56,.18); cursor: pointer; transition: .25s; }
 .filter.active, .filter:hover { color: white; background: var(--navy); }
 .property-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; }
+.section-action { margin-top: 46px; text-align: center; }
 .property-card { background: white; box-shadow: 0 12px 35px rgba(6,29,56,.07); transition: transform .4s, box-shadow .4s; overflow: hidden; }
 .property-card:hover { transform: translateY(-9px); box-shadow: 0 20px 48px rgba(6,29,56,.14); }
 .property-card.hidden { display: none !important; }
@@ -92,6 +105,9 @@ h2 { color: var(--navy); font: 500 clamp(40px, 4.5vw, 68px)/1.05 var(--serif); l
 .property-one { background-image: url("assets/imovel-la-blanca.jpg"); }
 .property-two { background-image: url("assets/imovel-san-jose.jpg"); }
 .property-three { background-image: url("assets/imovel-lago.jpg"); }
+.property-four { background-image: url("assets/imovel-santa-ana.png"); }
+.property-five { background-image: url("assets/imovel-kitnet-zl.png"); }
+.property-six { background-image: url("assets/imovel-boqueron.png"); }
 .tag { position: absolute; top: 18px; left: 18px; padding: 8px 13px; color: var(--navy); background: var(--gold-light); font-size: 11px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; }
 .favorite { position: absolute; top: 15px; right: 15px; width: 38px; height: 38px; border: 0; border-radius: 50%; color: white; background: rgba(6,29,56,.75); font-size: 22px; cursor: pointer; transition: .2s; }
 .favorite.active { color: var(--gold-light); transform: scale(1.08); }
@@ -117,11 +133,13 @@ h2 { color: var(--navy); font: 500 clamp(40px, 4.5vw, 68px)/1.05 var(--serif); l
 .services { background: var(--navy); overflow: hidden; }
 .section-heading.light h2 { color: white; }
 .section-heading.light > p { max-width: 420px; margin: 0; color: rgba(255,255,255,.6); line-height: 1.7; }
-.service-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: rgba(255,255,255,.14); border: 1px solid rgba(255,255,255,.14); }
-.service-card { min-height: 410px; padding: 44px; position: relative; color: white; background: var(--navy); transition: background .4s; }
+.service-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: rgba(255,255,255,.14); border: 1px solid rgba(255,255,255,.14); }
+.service-card { min-height: 480px; position: relative; color: white; background: var(--navy); transition: background .4s; overflow: hidden; }
 .service-card:hover { background: var(--navy-2); }
-.service-number { position: absolute; top: 32px; right: 32px; color: rgba(255,255,255,.2); font: 500 36px var(--serif); }
-.service-icon { width: 58px; height: 58px; display: grid; place-items: center; margin-bottom: 50px; color: var(--navy); background: var(--gold); font-size: 24px; }
+.service-card > img { width: 100%; height: 235px; object-fit: cover; object-position: center; transition: transform .6s; }
+.service-card:hover > img { transform: scale(1.035); }
+.service-content { padding: 28px; }
+.service-number { position: absolute; z-index: 2; top: 16px; right: 16px; width: 40px; height: 40px; display: grid; place-items: center; color: var(--navy); background: var(--gold-light); font: 500 16px var(--serif); }
 .service-card h3 { color: var(--gold-light); font: 500 27px var(--serif); }
 .service-card p { color: rgba(255,255,255,.66); line-height: 1.7; }
 .service-card a { display: flex; justify-content: space-between; margin-top: 36px; padding-top: 18px; border-top: 1px solid rgba(255,255,255,.15); color: white; font-size: 14px; }
@@ -156,14 +174,14 @@ footer > small { grid-column: 1/-1; padding-top: 25px; border-top: 1px solid rgb
   .about { grid-template-columns: .8fr 1fr; gap: 5vw; }
   .about-image { min-height: 520px; }
   .property-grid { grid-template-columns: repeat(2, 1fr); }
-  .service-card { padding: 30px; }
+  .service-grid { grid-template-columns: repeat(2, 1fr); }
   .values { grid-template-columns: 1fr; gap: 16px; }
 }
 
 @media (max-width: 760px) {
   .site-header { height: 72px; padding: 0 22px; }
-  .brand-mark { width: 35px; height: 35px; }
-  .brand strong { font-size: 13px; }
+  .brand img { width: 72px; height: 60px; }
+  .footer-brand img { width: 115px; }
   .menu-toggle { display: block; z-index: 52; }
   .menu-toggle.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
   .menu-toggle.active span:nth-child(2) { opacity: 0; }
@@ -173,6 +191,10 @@ footer > small { grid-column: 1/-1; padding-top: 25px; border-top: 1px solid rgb
   .main-nav a { font: 500 32px var(--serif); }
   .main-nav .nav-cta { font: 600 14px var(--sans); }
   .hero-content { margin: 0; padding: 95px 22px 120px; }
+  .catalog-hero { min-height: 430px; padding: 145px 22px 70px; }
+  .catalog-hero h1 { font-size: 50px; }
+  .catalog-properties { padding-top: 85px; }
+  .catalog-properties .property-ticker { margin-top: -85px; }
   .hero { align-items: end; background-position: 62% center; }
   .hero-shade { background: linear-gradient(0deg, rgba(3,17,34,.98) 0%, rgba(3,17,34,.75) 60%, rgba(3,17,34,.2)); }
   h1 { font-size: clamp(47px, 15vw, 68px); }
@@ -191,7 +213,7 @@ footer > small { grid-column: 1/-1; padding-top: 25px; border-top: 1px solid rgb
   .property-ticker { margin: -85px -22px 65px; }
   .filters { width: 100%; }
   .filter { flex: 1; }
-  .service-card { min-height: 350px; padding: 34px 28px; }
+  .service-card { min-height: 430px; }
   .section-heading.light > p { max-width: none; }
   .contact-form { padding: 30px 22px; }
   footer { grid-template-columns: 1fr; text-align: center; justify-items: center; }
